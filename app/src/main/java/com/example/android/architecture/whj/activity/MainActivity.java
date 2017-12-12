@@ -18,12 +18,6 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
-    protected void initTitleBar(HeaderBuilder builder) {
-
-    }
-
-
-    @Override
     protected int getContentResId() {
         return R.layout.activity_main;
     }

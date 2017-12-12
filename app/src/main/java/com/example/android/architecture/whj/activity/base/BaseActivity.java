@@ -49,6 +49,11 @@ public abstract class BaseActivity extends ToolBarActivity {
         return 0;
     }
 
+    @Override
+    protected void initTitleBar(HeaderBuilder builder) {
+
+    }
+
     protected Fragment getFragment() {
         return null;
     }
