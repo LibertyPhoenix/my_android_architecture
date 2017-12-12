@@ -25,9 +25,9 @@ task clean(type: Delete) {
 // Define versions in a single place
 ext {
     // Sdk and tools
-    minSdkVersion = 10
+    minSdkVersion = 19
     targetSdkVersion = 25
-    compileSdkVersion = 25
+    compileSdkVersion = 26
     buildToolsVersion = '26.0.2'
 
     // App dependencies
@@ -40,20 +40,14 @@ ext {
     runnerVersion = '0.5'
     rulesVersion = '0.5'
     espressoVersion = '2.2.2'
+//  友盟
+    umengAnalyticsVersion = "latest.integration"
+//  butterKnife
+    butterKnifeVersion = "8.8.1"
+    rxBindingVersion = '2.0.0'
+
 }
 
-/*
- * Workaround for https://code.google.com/p/android/issues/detail?id=182715
- *
- * The Android Gradle plugin is creating DataBindingExportBuildInfoTasks for the instrumentation
- * APK that generates from the app APKs layouts. This creates duplicate classes in the app and
- * instrumentation APK which leads to
- *      java.lang.IllegalAccessError: Class ref in pre-verified class resolved to unexpected implementation
- * on older devices.
- *
- * The workaround is to get the DataBindingExportBuildInfoTasks tasks for the instrumentation APK
- * and delete the files right after it creates them.
- */
 subprojects {
     tasks.withType(com.android.build.gradle.internal.tasks.databinding.DataBindingExportBuildInfoTask) { task ->
         if (task.name.endsWith("AndroidTest")) {

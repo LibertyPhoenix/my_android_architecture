@@ -26,5 +26,26 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.BaseToolBar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:background">@color/color_00b2e9</item>
+    </style>
+
+    <style name="tab_rb_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:button">@null</item>
+        <item name="android:padding">@dimen/dim4</item>
+        <item name="android:drawablePadding">@dimen/dim2</item>
+        <item name="android:textColor">@drawable/tab_selector_tv_color</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:gravity">center_horizontal|bottom</item>
+        <item name="android:layout_gravity">bottom</item>
+        <!-- <item name="android:background" >@drawable/tab_selector_checked_bg</item> -->
+    </style>
+
+
+
+
 </resources>

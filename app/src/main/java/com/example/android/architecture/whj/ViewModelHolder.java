@@ -29,7 +29,6 @@ import android.support.v4.app.Fragment;
 public class ViewModelHolder<VM> extends Fragment {
 
     private VM mViewModel;
-
     public ViewModelHolder() { }
 
     public static <M> ViewModelHolder createContainer(@NonNull M viewModel) {
