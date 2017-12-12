@@ -20,7 +20,6 @@ import android.databinding.DataBindingUtil;
 import android.databinding.Observable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.PopupMenu;
@@ -33,7 +32,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
-import com.example.android.architecture.whj.Injection;
 import com.example.android.architecture.whj.R;
 import com.example.android.architecture.whj.ScrollChildSwipeRefreshLayout;
 import com.example.android.architecture.whj.data.Task;
@@ -42,8 +40,9 @@ import com.example.android.architecture.whj.databinding.TaskItemBinding;
 import com.example.android.architecture.whj.databinding.TasksFragBinding;
 import com.example.android.architecture.whj.util.SnackbarUtils;
 
-import java.util.ArrayList;
 import java.util.List;
+
+//import com.example.android.architecture.whj.Injection;
 
 /**
  * Display a grid of {@link Task}s. User can choose to view all, active or completed tasks.
@@ -120,8 +119,6 @@ public class TasksFragment extends Fragment {
 
         setupSnackbar();
 
-        setupFab();
-
         setupListAdapter();
 
         setupRefreshLayout();
@@ -171,28 +168,15 @@ public class TasksFragment extends Fragment {
         popup.show();
     }
 
-    private void setupFab() {
-        FloatingActionButton fab =
-                (FloatingActionButton) getActivity().findViewById(R.id.fab_add_task);
-
-        fab.setImageResource(R.drawable.ic_add);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mTasksViewModel.addNewTask();
-            }
-        });
-    }
-
     private void setupListAdapter() {
-        ListView listView =  mTasksFragBinding.tasksList;
+//        ListView listView =  mTasksFragBinding.tasksList;
 
-        mListAdapter = new TasksAdapter(
-                new ArrayList<Task>(0),
-                (TasksActivity) getActivity(),
-                Injection.provideTasksRepository(getContext().getApplicationContext()),
-                mTasksViewModel);
-        listView.setAdapter(mListAdapter);
+//        mListAdapter = new TasksAdapter(
+//                new ArrayList<Task>(0),
+//                (TasksActivity) getActivity(),
+//                Injection.provideTasksRepository(getContext().getApplicationContext()),
+//                mTasksViewModel);
+//        listView.setAdapter(mListAdapter);
     }
 
     private void setupRefreshLayout() {

@@ -29,12 +29,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.example.android.architecture.whj.Injection;
 import com.example.android.architecture.whj.R;
 import com.example.android.architecture.whj.ViewModelHolder;
-import com.example.android.architecture.whj.addedittask.AddEditTaskActivity;
-import com.example.android.architecture.whj.statistics.StatisticsActivity;
-import com.example.android.architecture.whj.taskdetail.TaskDetailActivity;
+import com.example.android.architecture.whj.data.source.TasksRepository;
+import com.example.android.architecture.whj.data.source.local.TasksLocalDataSource;
+import com.example.android.architecture.whj.data.source.remote.TasksRemoteDataSource;
 import com.example.android.architecture.whj.util.ActivityUtils;
 import com.example.android.architecture.whj.util.EspressoIdlingResource;
 
@@ -53,8 +52,6 @@ public class TasksActivity extends AppCompatActivity implements TaskItemNavigato
         setContentView(R.layout.tasks_act);
 
         setupToolbar();
-
-        setupNavigationDrawer();
 
         TasksFragment tasksFragment = findOrCreateViewFragment();
 
@@ -84,8 +81,7 @@ public class TasksActivity extends AppCompatActivity implements TaskItemNavigato
             return retainedViewModel.getViewmodel();
         } else {
             // There is no ViewModel yet, create it.
-            TasksViewModel viewModel = new TasksViewModel(
-                    Injection.provideTasksRepository(getApplicationContext()),
+            TasksViewModel viewModel = new TasksViewModel(new TasksRepository(new TasksRemoteDataSource(),new TasksLocalDataSource(getApplicationContext())),
                     getApplicationContext());
             // and bind it to this Activity's lifecycle using the Fragment Manager.
             ActivityUtils.addFragmentToActivity(
@@ -112,19 +108,9 @@ public class TasksActivity extends AppCompatActivity implements TaskItemNavigato
     private void setupToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        ActionBar ab = getSupportActionBar();
-        ab.setHomeAsUpIndicator(R.drawable.ic_menu);
-        ab.setDisplayHomeAsUpEnabled(true);
     }
 
-    private void setupNavigationDrawer() {
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerLayout.setStatusBarBackground(R.color.colorPrimaryDark);
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        if (navigationView != null) {
-            setupDrawerContent(navigationView);
-        }
-    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -147,9 +133,9 @@ public class TasksActivity extends AppCompatActivity implements TaskItemNavigato
                                 // Do nothing, we're already on that screen
                                 break;
                             case R.id.statistics_navigation_menu_item:
-                                Intent intent =
-                                        new Intent(TasksActivity.this, StatisticsActivity.class);
-                                startActivity(intent);
+//                                Intent intent =
+//                                        new Intent(TasksActivity.this, StatisticsActivity.class);
+//                                startActivity(intent);
                                 break;
                             default:
                                 break;
@@ -174,15 +160,15 @@ public class TasksActivity extends AppCompatActivity implements TaskItemNavigato
 
     @Override
     public void openTaskDetails(String taskId) {
-        Intent intent = new Intent(this, TaskDetailActivity.class);
-        intent.putExtra(TaskDetailActivity.EXTRA_TASK_ID, taskId);
-        startActivityForResult(intent, AddEditTaskActivity.REQUEST_CODE);
+//        Intent intent = new Intent(this, TaskDetailActivity.class);
+//        intent.putExtra(TaskDetailActivity.EXTRA_TASK_ID, taskId);
+//        startActivityForResult(intent, AddEditTaskActivity.REQUEST_CODE);
 
     }
 
     @Override
     public void addNewTask() {
-        Intent intent = new Intent(this, AddEditTaskActivity.class);
-        startActivityForResult(intent, AddEditTaskActivity.REQUEST_CODE);
+//        Intent intent = new Intent(this, AddEditTaskActivity.class);
+//        startActivityForResult(intent, AddEditTaskActivity.REQUEST_CODE);
     }
 }

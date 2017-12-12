@@ -56,8 +56,8 @@ public class TasksRepository implements TasksDataSource {
     boolean mCacheIsDirty = false;
 
     // Prevent direct instantiation.
-    private TasksRepository(@NonNull TasksDataSource tasksRemoteDataSource,
-                            @NonNull TasksDataSource tasksLocalDataSource) {
+    public TasksRepository(@NonNull TasksDataSource tasksRemoteDataSource,
+                           @NonNull TasksDataSource tasksLocalDataSource) {
         mTasksRemoteDataSource = checkNotNull(tasksRemoteDataSource);
         mTasksLocalDataSource = checkNotNull(tasksLocalDataSource);
     }

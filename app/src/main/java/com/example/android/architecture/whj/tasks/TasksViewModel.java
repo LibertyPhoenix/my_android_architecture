@@ -27,11 +27,11 @@ import android.graphics.drawable.Drawable;
 
 import com.example.android.architecture.whj.BR;
 import com.example.android.architecture.whj.R;
-import com.example.android.architecture.whj.addedittask.AddEditTaskActivity;
+//import com.example.android.architecture.whj.addedittask.AddEditTaskActivity;
 import com.example.android.architecture.whj.data.Task;
 import com.example.android.architecture.whj.data.source.TasksDataSource;
 import com.example.android.architecture.whj.data.source.TasksRepository;
-import com.example.android.architecture.whj.taskdetail.TaskDetailActivity;
+//import com.example.android.architecture.whj.taskdetail.TaskDetailActivity;
 import com.example.android.architecture.whj.util.EspressoIdlingResource;
 
 import java.util.ArrayList;
@@ -159,22 +159,22 @@ public class TasksViewModel extends BaseObservable {
     }
 
     void handleActivityResult(int requestCode, int resultCode) {
-        if (AddEditTaskActivity.REQUEST_CODE == requestCode) {
-            switch (resultCode) {
-                case TaskDetailActivity.EDIT_RESULT_OK:
-                    snackbarText.set(
-                            mContext.getString(R.string.successfully_saved_task_message));
-                    break;
-                case AddEditTaskActivity.ADD_EDIT_RESULT_OK:
-                    snackbarText.set(
-                            mContext.getString(R.string.successfully_added_task_message));
-                    break;
-                case TaskDetailActivity.DELETE_RESULT_OK:
-                    snackbarText.set(
-                            mContext.getString(R.string.successfully_deleted_task_message));
-                    break;
-            }
-        }
+//        if (AddEditTaskActivity.REQUEST_CODE == requestCode) {
+//            switch (resultCode) {
+//                case TaskDetailActivity.EDIT_RESULT_OK:
+//                    snackbarText.set(
+//                            mContext.getString(R.string.successfully_saved_task_message));
+//                    break;
+//                case AddEditTaskActivity.ADD_EDIT_RESULT_OK:
+//                    snackbarText.set(
+//                            mContext.getString(R.string.successfully_added_task_message));
+//                    break;
+//                case TaskDetailActivity.DELETE_RESULT_OK:
+//                    snackbarText.set(
+//                            mContext.getString(R.string.successfully_deleted_task_message));
+//                    break;
+//            }
+//        }
     }
 
     /**

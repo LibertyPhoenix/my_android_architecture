@@ -41,7 +41,7 @@ public class TasksLocalDataSource implements TasksDataSource {
     private TasksDbHelper mDbHelper;
 
     // Prevent direct instantiation.
-    private TasksLocalDataSource(@NonNull Context context) {
+    public TasksLocalDataSource(@NonNull Context context) {
         checkNotNull(context);
         mDbHelper = new TasksDbHelper(context);
     }
