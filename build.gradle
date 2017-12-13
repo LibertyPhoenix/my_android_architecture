@@ -33,7 +33,7 @@ ext {
     buildToolsVersion = '26.0.2'
 
     // App dependencies
-    supportLibraryVersion = '25.3.1'
+    supportLibraryVersion = '26.1.0'
     guavaVersion = '18.0'
     junitVersion = '4.12'
     mockitoVersion = '1.10.19'
@@ -49,6 +49,10 @@ ext {
     rxBindingVersion = '2.0.0'
 //  MultiDexApplication
     multidexVersion = '1.0.1'
+//  rxjava + okhttp + retrofit
+    retrofitVersion = "2.3.0"
+    rxjava2Version = "2.0.1"
+    okhttpVersion = "3.8.0"
 
 
 }

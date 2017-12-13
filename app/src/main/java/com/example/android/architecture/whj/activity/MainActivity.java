@@ -7,8 +7,10 @@ package com.example.android.architecture.whj.activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.view.KeyEvent;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.example.android.architecture.whj.R;
 import com.example.android.architecture.whj.activity.base.BaseActivity;
@@ -17,12 +19,16 @@ import com.example.android.architecture.whj.fragment.HomeFragment;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.BindViews;
 
 
 public class MainActivity extends BaseActivity {
+
+    private int count = 0;
 
     @BindView(R.id.activity_main_vp)
     ViewPager tabVP;
@@ -102,6 +108,31 @@ public class MainActivity extends BaseActivity {
                 }
             }
         });
+    }
+
+//  点击两次退出App
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            count++;
+            if (count == 1) {
+                Toast.makeText(this, "再点一次返回键退出App", Toast.LENGTH_SHORT).show();
+            }
+            Timer timer = new Timer();
+            timer.schedule(
+                    new TimerTask() {
+                        @Override
+                        public void run() {
+                            count = 0;
+                        }
+                    }, 2000
+            );
+
+            if (count == 2) {
+                finish();
+            }
+        }
+        return false;
     }
 
 }
