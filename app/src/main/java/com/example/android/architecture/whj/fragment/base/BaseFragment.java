@@ -47,9 +47,8 @@ public abstract class BaseFragment extends UmengFragment {
     protected  void setListener() {}
 
 
-    protected  int getContentResId() {
-        return 0;
-    }
+    protected  abstract int getContentResId();
+
     protected <VG extends View> VG getViewById(int resId) {
         return (VG) mRootLayout.findViewById(resId);
     }

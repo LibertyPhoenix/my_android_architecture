@@ -27,25 +27,25 @@
                 style="@style/tab_rb_style"
                 android:checked="true"
                 android:drawableTop="@drawable/tab_selector_1"
-                android:text="课表"/>
+                android:text="@string/app_tab_text_1"/>
 
             <RadioButton
                 android:id="@+id/tab_rb_2"
                 style="@style/tab_rb_style"
                 android:drawableTop="@drawable/tab_selector_2"
-                android:text="约课"/>
+                android:text="@string/app_tab_text_2"/>
 
             <RadioButton
                 android:id="@+id/tab_rb_3"
                 style="@style/tab_rb_style"
                 android:drawableTop="@drawable/tab_selector_3"
-                android:text="已上课程"/>
+                android:text="@string/app_tab_text_3"/>
 
             <RadioButton
                 android:id="@+id/tab_rb_4"
                 style="@style/tab_rb_style"
                 android:drawableTop="@drawable/tab_selector_4"
-                android:text="我"/>
+                android:text="@string/app_tab_text_4"/>
         </RadioGroup>
     </LinearLayout>
 
