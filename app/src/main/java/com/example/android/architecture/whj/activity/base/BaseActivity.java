@@ -13,8 +13,8 @@ import io.reactivex.disposables.CompositeDisposable;
 
 /**
  * 作用：无网络请求的BaseActivity
- * author：田楠楠.
- * date：Created on 2017/2/15.
+ * author：王宏杰.
+ * date：Created on 2017/12/13.
  */
 public abstract class BaseActivity extends ToolBarActivity {
 
@@ -25,6 +25,8 @@ public abstract class BaseActivity extends ToolBarActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRootContent();
+        getIntentData();
+        setListener();
     }
 
     private void setRootContent() {
@@ -45,9 +47,14 @@ public abstract class BaseActivity extends ToolBarActivity {
         transaction.commitAllowingStateLoss();
     }
 
-    protected int getContentResId() {
+    protected  int getContentResId() {
         return 0;
     }
+
+    protected  void getIntentData() {}
+
+    protected  void setListener() {}
+
 
     @Override
     protected void initTitleBar(HeaderBuilder builder) {

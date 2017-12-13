@@ -12,7 +12,7 @@ import butterknife.Unbinder;
 
 /**
  * author: 王宏杰
- * date: Created on 17/2/24.
+ * date: Created on 2017/12/12.
  */
 public abstract class BaseFragment extends UmengFragment {
     private View mRootLayout;
@@ -28,6 +28,13 @@ public abstract class BaseFragment extends UmengFragment {
     }
 
     @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        getIntentData();
+        setListener();
+    }
+
+    @Override
     public void onDestroy() {
         super.onDestroy();
         if (mUnbinder != null) {
@@ -35,8 +42,14 @@ public abstract class BaseFragment extends UmengFragment {
         }
     }
 
-    protected abstract int getContentResId();
+    protected  void getIntentData() {}
 
+    protected  void setListener() {}
+
+
+    protected  int getContentResId() {
+        return 0;
+    }
     protected <VG extends View> VG getViewById(int resId) {
         return (VG) mRootLayout.findViewById(resId);
     }
