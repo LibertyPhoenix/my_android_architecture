@@ -3,11 +3,13 @@ package com.example.android.architecture.whj.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.android.architecture.whj.R;
 import com.example.android.architecture.whj.fragment.base.BaseFragment;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 
 /**
@@ -28,13 +30,19 @@ public class HomeFragment extends BaseFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        testTV.setText("hah");
-
     }
 
     @Override
     protected int getContentResId() {
         return R.layout.fragment_home;
     }
+
+    @OnClick(R.id.test_tv)
+    public void testClick() {
+        Toast.makeText(getContext(), "点击了", Toast.LENGTH_SHORT).show();
+
+
+    }
+
 
 }

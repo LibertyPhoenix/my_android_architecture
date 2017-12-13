@@ -47,6 +47,9 @@ ext {
 //  butterKnife
     butterKnifeVersion = "8.8.1"
     rxBindingVersion = '2.0.0'
+//  MultiDexApplication
+    multidexVersion = '1.0.1'
+
 
 }
 

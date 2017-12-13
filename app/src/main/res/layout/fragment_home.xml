@@ -9,6 +9,7 @@
     android:layout_gravity="center"
     android:gravity="center"
     android:background="@color/color_00b2e9"
+    android:clickable="true"
     android:text="功能列表 "
     android:textSize="@dimen/dim18"/>
 
