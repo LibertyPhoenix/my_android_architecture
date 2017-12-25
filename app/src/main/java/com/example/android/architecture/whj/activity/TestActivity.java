@@ -24,6 +24,11 @@ public class TestActivity extends BaseActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
     protected void initTitleBar(HeaderBuilder builder) {
         builder.setTitle("功能列表");
     }
